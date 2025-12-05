@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     service_token: str = Field(default="changeme-service-token", description="Service token for Core API")
 
     bot_token: str = Field(default="changeme-telegram-bot-token", description="Telegram bot token")
+    bot_username: Optional[str] = Field(default=None, description="Telegram bot username (for deeplinks)")
     bot_webhook_url: Optional[str] = Field(default=None, description="Webhook URL for Telegram updates")
 
     payment_provider: str = Field(default="sandbox", description="Payment provider identifier")
@@ -25,6 +26,13 @@ class Settings(BaseSettings):
     payment_public_key: Optional[str] = Field(default=None, description="Public key for provider (if required)")
 
     link_token_ttl_seconds: int = Field(default=900, description="TTL for Telegram link tokens in seconds")
+
+    integration_api_base_url: str = Field(
+        default="http://localhost:8000/api/v1", description="Base URL for this integration API (for bot calls)"
+    )
+
+    http_max_retries: int = Field(default=2, description="Retries for outgoing HTTP calls to Core API")
+    http_retry_backoff: float = Field(default=0.5, description="Backoff seconds between retries")
 
 
 @lru_cache(maxsize=1)
