@@ -1,0 +1,16 @@
+[
+  {
+    "user_id": "u-1001",
+    "name": "Анна",
+    "phone": "+79990000001",
+    "email": "anna@example.com",
+    "tariff_expiry": "2024-06-30T00:00:00Z"
+  },
+  {
+    "user_id": "u-1002",
+    "name": "Олег",
+    "phone": "+79990000002",
+    "email": "oleg@example.com",
+    "tariff_expiry": "2024-06-20T00:00:00Z"
+  }
+]

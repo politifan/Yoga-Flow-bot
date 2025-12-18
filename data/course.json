@@ -1,0 +1,10 @@
+{
+  "description": "Базовый курс Yoga Flow: 3 недели практик для устойчивости и гибкости.",
+  "price": 49,
+  "duration_days": 21,
+  "videos": [
+    "https://videos.example.com/yoga-flow/intro",
+    "https://videos.example.com/yoga-flow/day1",
+    "https://videos.example.com/yoga-flow/day2"
+  ]
+}
