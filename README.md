@@ -27,6 +27,28 @@
 - Подписки/заявки: `YOGA_DATA_DIR/subscriptions.json` (существующий файл из Yoga_Flow/data; новый не создаётся).
 - Тарифы/курсы: `YOGA_DATA_DIR/plans.json` (из проекта Yoga_Flow). Файл обязателен.
 
+## Пользовательский бот (доступ к курсам)
+Файл: `user_bot.py` (aiogram). Использует общие данные из `YOGA_DATA_DIR`, хранит токены/связки в общих файлах `YOGA_DATA_DIR/tg_tokens.json` и `YOGA_DATA_DIR/tg_links.json`.
+
+Команды:
+- `/start` / `/help` — подсказка
+- `/tariffs` — список тарифов/курсов
+- `/link <token>` — привязать аккаунт через токен, сгенерированный на сайте
+- `/status` — статус подписки для привязанного аккаунта
+- `/support` — контакты поддержки
+
+OAuth-связка (сайт → бот):
+- На сайте перейдите в `/tg/link` (нужна авторизация, задайте `USER_BOT_USERNAME` в `.env` проекта Yoga_Flow).
+- Сгенерируйте токен (действует ~15 минут) и откройте бота по ссылке или командой `/link <token>`.
+- Бот помечает связку в `tg_links.json`; токены в `tg_tokens.json`.
+
+Запуск:
+```
+export USER_BOT_TOKEN=<tg_token_for_users>
+export YOGA_DATA_DIR=/path/to/Yoga_Flow/data  # если не рядом
+python user_bot.py
+```
+
 Данные хранятся в JSON для простоты; их можно заменить интеграцией с БД или API сайта.
 
 ## Идея клиентского (пользовательского) бота
